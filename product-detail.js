@@ -43,6 +43,8 @@ document.getElementById('unitSelect').addEventListener('change', function () {
     const inputs = document.querySelectorAll('#dimensionInputs input[type="number"]');
 
     inputs.forEach(input => {
+        if (input.id === 'customDegreeInput') return;
+        
         let label = input.getAttribute('aria-label') || "";
         if (label.toLowerCase().includes("coils")) return;
 
