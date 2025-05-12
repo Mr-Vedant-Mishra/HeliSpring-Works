@@ -6,6 +6,24 @@ const navbarTogglerIcon = navbarToggler.querySelector('.navbar-toggler-icon');
 navbarToggler.addEventListener('click', function () {
     navbarTogglerIcon.classList.toggle('toggle-cross');
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const mainImage = document.getElementById("mainImage");
+    const thumbnails = document.querySelectorAll(".small-thumb");
+
+    thumbnails.forEach(thumb => {
+        // On hover: change the main image to the thumbnail image
+        thumb.addEventListener("mouseover", function () {
+            const newSrc = this.getAttribute("data-large");
+            mainImage.src = newSrc;
+        });
+
+        // Optional: On click, lock the image in place
+        thumb.addEventListener("click", function () {
+            const newSrc = this.getAttribute("data-large");
+            mainImage.src = newSrc;
+        });
+    });
+});
 
 const sameWhatsappCheckbox = document.getElementById("sameWhatsapp");
 const whatsappField = document.getElementById("whatsappField");
